@@ -1,10 +1,11 @@
+import NavBar from "./components/NavBar/NavBar";
 
 
 function App() {
   return (
-    <div className="container mt-5">
-      <h1>Tienda de el Pelao</h1>
     
+    <div className="container-fluid">
+        <NavBar />
     </div>
   );
 }
