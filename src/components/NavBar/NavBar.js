@@ -1,5 +1,6 @@
 import React from 'react'
 import { Nav, Navbar,Form, FormControl, Button } from 'react-bootstrap'
+import CardWidget from '../CardWidget/CardWidget'
 
 
 const NavBar = () => {
@@ -8,8 +9,9 @@ const NavBar = () => {
             <Navbar.Brand href="#incio">Tienda Salim</Navbar.Brand>
             <Nav className="mr-auto ml-auto">
                 <Nav.Link href="#productos">Productos</Nav.Link>
-                <Nav.Link href="#carrito">Carrito</Nav.Link>
+                <Nav.Link href="#Info">Info</Nav.Link>
                 <Nav.Link href="#contacto">Contacto</Nav.Link>
+                <Nav.Link href="#carrito"><CardWidget /></Nav.Link>
             </Nav>
             <Form inline>
                 <FormControl type="text" placeholder="Buscar producto" className="mr-sm-2" />
