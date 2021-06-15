@@ -1,5 +1,4 @@
 import ItemListContainer from "./components/Container/ItemListContainer";
-import ItemCount from "./components/ItemCount/ItemCount";
 import NavBar from "./components/NavBar/NavBar";
 
 
@@ -10,13 +9,9 @@ function App() {
         <NavBar />
         
         <ItemListContainer 
-          prodnom="Tela Polar"
+          prodnom="Lista de productos"
         />
-
-        <ItemCount 
-          stock={5}
-          inicial={1}
-        />
+        
     </div>
   );
 }
