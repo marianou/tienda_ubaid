@@ -19,12 +19,8 @@ const ItemCount = ({stock, inicial}) => {
 
     return (
             <Card border="primary" style={{ width: '18rem' }}>
-                <Card.Header>Producto</Card.Header>
                 <Card.Body>
-                <Card.Title>Descripción del Producto</Card.Title>
                 <Card.Text className="text-center">
-                   Descripción
-                   <br />
                    <Button variant="outline-secondary" onClick={()=>restar()}>-</Button>
                    <Button variant="secondary">{cantidad}</Button>
                    <Button variant="outline-secondary" onClick={()=>sumar()}>+</Button>
