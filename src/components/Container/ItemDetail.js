@@ -1,25 +1,18 @@
 import React from 'react'
 import {Card} from 'react-bootstrap'
 import ItemCount from '../ItemCount/ItemCount'
-import ItemDetailContainer from './ItemDetailContainer'
+
+const ItemDetail = ({item}) => {
 
 
-
-const Item = ({item}) => {
-    
     return (
-        <>
+         <>
 
         <Card style={{ width: '18rem' }}>
             <Card.Img variant="top" src={item.pictureUrl} height="150px" width="100px" />
             <div Class="text-center">
                 <Card.Body>
-                    <a href={
-                            <ItemDetailContainer 
-                                prod={item}
-                            />}>
                     <Card.Title>{item.title}</Card.Title>      
-                    </a>
                     <Card.Text>
                         Precio: ${item.price}
                         <br/>
@@ -34,9 +27,7 @@ const Item = ({item}) => {
         </Card>
         
         </>
-        
-        
     )
 }
 
-export default Item
+export default ItemDetail
