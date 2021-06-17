@@ -7,10 +7,11 @@ function App() {
     
     <div className="container-fluid">
         <NavBar />
-        
+        <br/>
         <ItemListContainer 
           prodnom="Lista de productos"
         />
+        <br/>
         
     </div>
   );

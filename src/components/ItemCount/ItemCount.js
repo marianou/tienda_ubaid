@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Card } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 
 
 const ItemCount = ({stock, inicial}) => {
@@ -18,17 +18,17 @@ const ItemCount = ({stock, inicial}) => {
     }
 
     return (
-            <Card border="primary" style={{ width: '18rem' }}>
-                <Card.Body>
-                <Card.Text className="text-center">
+
+            
+            <>
+                   
                    <Button variant="outline-secondary" onClick={()=>restar()}>-</Button>
                    <Button variant="secondary">{cantidad}</Button>
                    <Button variant="outline-secondary" onClick={()=>sumar()}>+</Button>
-                </Card.Text>
-                </Card.Body>
-                <Button variant="outline-secondary" className="mx-auto">Agregar al carrito</Button>
-                <br />
-            </Card>
+                   <br/>
+                   <br/>
+                    <Button variant="outline-secondary" className="mx-auto">Agregar al carrito</Button>
+            </>    
     )
 }
 
