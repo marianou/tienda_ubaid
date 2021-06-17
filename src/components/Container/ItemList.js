@@ -4,6 +4,7 @@ import {Row, Col} from 'react-bootstrap'
 const ItemList = ({items}) => {
     
     return (
+      <div>
       <Row>
             {items.map(it=>
             <Col>    
@@ -13,6 +14,7 @@ const ItemList = ({items}) => {
             </Col>
           )}
       </Row>
+      </div>
     )
  }
 export default ItemList
