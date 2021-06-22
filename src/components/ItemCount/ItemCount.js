@@ -21,13 +21,12 @@ const ItemCount = ({stock, inicial}) => {
 
             
             <>
-                   
-                   <Button variant="outline-secondary" onClick={()=>restar()}>-</Button>
-                   <Button variant="secondary">{cantidad}</Button>
-                   <Button variant="outline-secondary" onClick={()=>sumar()}>+</Button>
-                   <br/>
-                   <br/>
-                    <Button variant="outline-secondary" className="mx-auto">Agregar al carrito</Button>
+                   <p>
+                   <Button variant="outline-secondary" size="sm" onClick={()=>restar()}>-</Button>
+                   <Button variant="secondary" size="sm">{cantidad}</Button>
+                   <Button variant="outline-secondary" size="sm" onClick={()=>sumar()}>+</Button>
+                   </p>
+                   <p> <Button variant="outline-secondary" className="mx-auto" size="sm">Agregar al carrito</Button></p>
             </>    
     )
 }
