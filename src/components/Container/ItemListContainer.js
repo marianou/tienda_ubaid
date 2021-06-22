@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import ItemList from './ItemList'
 
 
-const ItemListContainer = ({prodnom}) => {
+const ItemListContainer = ({prodnom},{mostrarDetalle}) => {
     
   const [localItems,SetLocalItems]=useState([])
 
@@ -31,7 +31,7 @@ const ItemListContainer = ({prodnom}) => {
   }, [])
   
   
-      
+
 
     return (
 
@@ -40,6 +40,8 @@ const ItemListContainer = ({prodnom}) => {
             <br/>
             <ItemList
               items={localItems}
+              
+              mostrarDetalle={mostrarDetalle}
             />            
         </div>           
       
