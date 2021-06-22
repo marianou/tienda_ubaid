@@ -1,44 +1,38 @@
 import React from 'react'
 import ItemDetail from './ItemDetail'
-import items from './ItemListContainer'
 import { useEffect, useState } from 'react';
 
-const ItemDetailContainer = (mostrarDetalleItem) => {
-//    const [localItem,SetLocalItem]=useState()
+const ItemDetailContainer = ({mostrarDetalle,itemsel}) => {
+    const [localItem,SetLocalItem]=useState([]);
 
-    
- // useEffect(() => {
-//
-//    const getItem =(prod1)=>{
-//        return new Promise((resolve,reject)=>{
-//          setTimeout(()=>{
-//            resolve(prod1)
-//          },2000)
-//        })
-//    }
+    //console.log(itemsel.title);
+ 
 
-//    getItem(items)
-//        .then(result => SetLocalItem(
-//            result.forEach(element => {
-//                if (it.id={prod}){
-//                    return it
-//                }
-//            })
-                
-            
-            
-//            ))
-//        .catch(error=>console.log(error.message))
+ useEffect(() => {
+
+    const getItem =(prod)=>{
+        return new Promise((resolve,reject)=>{
+         setTimeout(()=>{
+            resolve(prod)
+          },2000)
+        })
+    }
+
+    getItem(itemsel)
+       .then(result=>SetLocalItem(result))
+       .catch(error=>console.log(error.message))
     
 
-//         }, )      
-        
+ }, )      
+     
+
 
     return (
         
         <div>
             <ItemDetail 
-                //item={localItem}
+                itemd={localItem}
+                mostrarDetalle={mostrarDetalle}
             />
         </div>
     )

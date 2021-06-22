@@ -8,27 +8,29 @@ function App() {
 
 
   const [detalle, mostrarDetalle] = useState(false);
-
+  const [items, itemSeleccionado]=useState([]);
   //if(detalle){
   //  mostrarDetalle(false);
   //  return;
   //}
-  console.log({detalle});
+
   return (
     
     <div className="container-fluid">
         <NavBar />
         <br/>
-        { detalle ?  
+        {detalle ? 
           <ItemDetailContainer
               mostrarDetalle={mostrarDetalle}
+              itemsel={items}
             /> :
           
           <ItemListContainer 
             prodnom="Lista de productos"
             mostrarDetalle={mostrarDetalle}
+            itemSeleccionado={itemSeleccionado}
           />
-      }
+        }
         
         
         

@@ -1,27 +1,37 @@
 import React from 'react'
-//import {Card} from 'react-bootstrap'
+import {Card,Button} from 'react-bootstrap'
+import ItemCount from '../ItemCount/ItemCount'
 
 
-const ItemDetail = ({item}) => {
+const ItemDetail = ({itemd,mostrarDetalle}) => {
 
+    const volver = e =>{
+        mostrarDetalle(false);
+    }
 
+    
     return (
-        // <>
-
-        //<Card style={{ width: '18rem' }}>
-        //    <Card.Img variant="top" src="" height="150px" width="100px" />
-        //    <div className="text-center">
-        //        <Card.Body>
-        //            <Card.Title>{item.title}</Card.Title>      
-        //            <Card.Text>
-        //                Precio: ${item.price}
-        //            </Card.Text>
-        //        </Card.Body>
-        //    </div>    
-        //</Card>
-        
-        //</>
-        <div>
+        <div className="text-center">
+                
+            <Card style={{ width: '25rem'}}>
+                <Card.Header><h4>{itemd.title}</h4></Card.Header>
+                <Card.Body>
+                    
+                    <Card.Img variant="top" src={itemd.pictureUrl} height="150px" width="40px" />
+                    <Card.Text>
+                    <p>{itemd.description}</p>
+                    <p>Precio:$ {itemd.price}</p>
+                    <p>
+                        <ItemCount
+                            stock={5}
+                            inicial={1}
+                        />
+                    </p>
+                    </Card.Text>
+                    <Button variant="primary"onClick={volver}>Volver</Button>
+                </Card.Body>
+            </Card>
+            
             
         </div>
     )

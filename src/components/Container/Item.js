@@ -1,45 +1,49 @@
-import React from 'react'
-import {Card, Button} from 'react-bootstrap'
+import React,{Fragment} from 'react'
+import {Card,Button} from 'react-bootstrap'
 import ItemCount from '../ItemCount/ItemCount'
 //import ItemDetailContainer from './ItemDetailContainer'
 
 
-const Item = ({item},{mostrarDetalle}) => {
+const Item = ({item,mostrarDetalle,itemSeleccionado}) => {
     console.log(item);
     //mostrarDetalle(true)
 
 
-    const verDetalle = () =>{
-        mostrarDetalle=true;
+    const mostrarDetalleItem = e =>{
+        e.preventDefault();
+
+        mostrarDetalle(true);
+        itemSeleccionado(item);
     }
 
+    //<p><Button size="sm" onClick={mostrarDetalleItem} variant="outline-secondary">Ver Detalle</Button></p>
     return (
-        
-        <div className="text-center">
-            <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={item.pictureUrl} height="150px" width="100px" />
-                
-                    <Card.Body>
-                            <Card.Title>{item.title}</Card.Title>
-                        <Card.Text>
-                            
-                            <Button onClick={verDetalle} variant="outline-secondary">Ver Detalle</Button>
-                            <br/>
-                            <br/>
-                            Precio: ${item.price}
-                            <br/>
-                            <br/>
-                                <ItemCount
-                                    stock={5}
-                                    inicial={1}
-                                />
-                        </Card.Text>
-                    </Card.Body>
-                    
-            </Card>
+        <Fragment>
+           <form
             
-        </div>
+           > 
+            <div className="text-center">
+                <Card style={{ width: '16rem'}}>
+                
+                    <Card.Img variant="top" src={item.pictureUrl} height="150px" width="100px" />
+               
+                        <Card.Body>
+                            <Card.Title>{item.title}</Card.Title>
+                            <Card.Text>
+                                <p><h4>Precio: ${item.price}</h4></p>
+                                <p><Button size="sm" onClick={mostrarDetalleItem} variant="outline-secondary">Ver Detalle</Button></p>
+                                    <ItemCount
+                                        stock={5}
+                                        inicial={1}
+                                    />
+                            </Card.Text>
+                        </Card.Body>
+                </Card>
+            
         
+            </div>
+           </form>
+        </Fragment>        
         
     )
 }
