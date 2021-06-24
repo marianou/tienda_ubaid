@@ -7,8 +7,8 @@ import ItemDetailContainer from "./components/Container/ItemDetailContainer";
 function App() {
 
 
-  const [detalle, mostrarDetalle] = useState(false);
-  const [items, itemSeleccionado]=useState([]);
+  const [detalle, setDetalle] = useState(false);
+  const [items, setItems]=useState([]);
   //if(detalle){
   //  mostrarDetalle(false);
   //  return;
@@ -21,21 +21,16 @@ function App() {
         <br/>
         {detalle ? 
           <ItemDetailContainer
-              mostrarDetalle={mostrarDetalle}
+              setDetalle={setDetalle}
               itemsel={items}
             /> :
           
           <ItemListContainer 
             prodnom="Lista de productos"
-            mostrarDetalle={mostrarDetalle}
-            itemSeleccionado={itemSeleccionado}
+            setDetalle={setDetalle}
+            setItems={setItems}
           />
         }
-        
-        
-        
-
-        
         
     </div>
   );
