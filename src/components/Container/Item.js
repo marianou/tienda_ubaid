@@ -32,10 +32,7 @@ const Item = ({item,setDetalle,setItems}) => {
                             <Card.Text>
                                 <p><h4>Precio: ${item.price}</h4></p>
                                 <p><Button size="sm" onClick={mostrarDetalleItem} variant="outline-secondary">Ver Detalle</Button></p>
-                                    <ItemCount
-                                        stock={5}
-                                        inicial={1}
-                                    />
+                                    
                             </Card.Text>
                         </Card.Body>
                 </Card>
