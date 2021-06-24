@@ -4,16 +4,16 @@ import ItemCount from '../ItemCount/ItemCount'
 //import ItemDetailContainer from './ItemDetailContainer'
 
 
-const Item = ({item,mostrarDetalle,itemSeleccionado}) => {
-    console.log(item);
+const Item = ({item,setDetalle,setItems}) => {
+    //console.log(item)
     //mostrarDetalle(true)
 
 
     const mostrarDetalleItem = e =>{
         e.preventDefault();
 
-        mostrarDetalle(true);
-        itemSeleccionado(item);
+        setDetalle(true);
+        setItems(item);
     }
 
     //<p><Button size="sm" onClick={mostrarDetalleItem} variant="outline-secondary">Ver Detalle</Button></p>

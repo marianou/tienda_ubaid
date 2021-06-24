@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Button } from 'react-bootstrap'
 
 
-const ItemCount = ({stock, inicial}) => {
+const ItemCount = ({stock, inicial,onAdd}) => {
     console.log(stock, inicial)
     const [cantidad, setCantidad] = useState(inicial)
 
@@ -26,7 +26,8 @@ const ItemCount = ({stock, inicial}) => {
                    <Button variant="secondary" size="sm">{cantidad}</Button>
                    <Button variant="outline-secondary" size="sm" onClick={()=>sumar()}>+</Button>
                    </p>
-                   <p> <Button variant="outline-secondary" className="mx-auto" size="sm">Agregar al carrito</Button></p>
+                   <p> <Button variant="outline-secondary" className="mx-auto" size="sm" onClick={()=>
+                         onAdd({cantidad})}>Agregar al carrito</Button></p>
             </>    
     )
 }

@@ -1,12 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {Card,Button} from 'react-bootstrap'
 import ItemCount from '../ItemCount/ItemCount'
 
 
-const ItemDetail = ({itemd,mostrarDetalle}) => {
+const ItemDetail = ({itemd,setDetalle}) => {
+
+
+    const[isPress, setIsPress]=useState(false);
+
+    const onAdd = (cantidad) =>{
+        setIsPress(true)
+    }
 
     const volver = e =>{
-        mostrarDetalle(false);
+        setDetalle(false);
     }
 
     
@@ -31,8 +38,12 @@ const ItemDetail = ({itemd,mostrarDetalle}) => {
                     <Button variant="primary"onClick={volver}>Volver</Button>
                 </Card.Body>
             </Card>
-            
-            
+            <p>
+            {
+                (isPress && <button>Terminar compra</button>)
+                //(isPress && <ItemCount onAdd={onAdd} />)
+            }
+            </p>
         </div>
     )
 }
