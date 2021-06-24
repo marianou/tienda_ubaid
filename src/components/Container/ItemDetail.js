@@ -6,14 +6,11 @@ import ItemCount from '../ItemCount/ItemCount'
 const ItemDetail = ({itemd,setDetalle}) => {
 
 
-    const[isPress, setIsPress]=useState(false);
-
-    const onAdd = (cantidad) =>{
-        setIsPress(true)
-    }
+    const[isClicker, setIsClicker]=useState(false);  
 
     const volver = e =>{
         setDetalle(false);
+        setIsClicker(false);
     }
 
     
@@ -29,21 +26,23 @@ const ItemDetail = ({itemd,setDetalle}) => {
                     <p>{itemd.description}</p>
                     <p>Precio:$ {itemd.price}</p>
                     <p>
-                        <ItemCount
+                        <ItemCount 
                             stock={5}
                             inicial={1}
+                            onAdd={setIsClicker}
                         />
+                    
+
+                    {(isClicker && <Button variant="primary">Terminar compra</Button>)}
+                                       
                     </p>
+                    
                     </Card.Text>
-                    <Button variant="primary"onClick={volver}>Volver</Button>
+                    <Button variant="primary" onClick={volver}>Volver</Button>
                 </Card.Body>
             </Card>
-            <p>
-            {
-                (isPress && <button>Terminar compra</button>)
-                //(isPress && <ItemCount onAdd={onAdd} />)
-            }
-            </p>
+            
+        
         </div>
     )
 }

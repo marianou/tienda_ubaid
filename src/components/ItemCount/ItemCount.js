@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap'
 
 
 const ItemCount = ({stock, inicial,onAdd}) => {
-    console.log(stock, inicial)
+    
     const [cantidad, setCantidad] = useState(inicial)
 
     const sumar=()=>{
@@ -17,6 +17,10 @@ const ItemCount = ({stock, inicial,onAdd}) => {
          setCantidad(cantidad-1)
     }
 
+    const terminar = () =>{
+        onAdd(true);
+    }
+
     return (
 
             
@@ -26,8 +30,8 @@ const ItemCount = ({stock, inicial,onAdd}) => {
                    <Button variant="secondary" size="sm">{cantidad}</Button>
                    <Button variant="outline-secondary" size="sm" onClick={()=>sumar()}>+</Button>
                    </p>
-                   <p> <Button variant="outline-secondary" className="mx-auto" size="sm" onClick={()=>
-                         onAdd({cantidad})}>Agregar al carrito</Button></p>
+                   <p> <Button variant="outline-secondary" className="mx-auto" size="sm" 
+                   onClick={ () => terminar()}>Agregar al carrito</Button></p>
             </>    
     )
 }
