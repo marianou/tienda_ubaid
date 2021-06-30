@@ -25,7 +25,7 @@ const ItemDetailContainer = ({setDetalle,itemsel}) => {
 
  }, )      
      
-
+    
 
     return (
         

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {Card,Button} from 'react-bootstrap'
 import ItemCount from '../ItemCount/ItemCount'
-
+import {Link} from 'react-router-dom'
 
 const ItemDetail = ({itemd,setDetalle}) => {
 
@@ -33,12 +33,12 @@ const ItemDetail = ({itemd,setDetalle}) => {
                         />
                     
 
-                    {(isClicker && <Button variant="primary">Terminar compra</Button>)}
+                    {(isClicker &&  <Link to={'/cart'}><Button variant="primary">Terminar compra</Button></Link>)}
                                        
                     </p>
                     
                     </Card.Text>
-                    <Button variant="primary" onClick={volver}>Volver</Button>
+                    <Link to={'/'}><Button variant="primary" onClick={volver}>Volver</Button></Link>
                 </Card.Body>
             </Card>
             

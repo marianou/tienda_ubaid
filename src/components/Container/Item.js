@@ -1,6 +1,6 @@
 import React,{Fragment} from 'react'
 import {Card,Button} from 'react-bootstrap'
-import ItemCount from '../ItemCount/ItemCount'
+import {Link} from 'react-router-dom'
 //import ItemDetailContainer from './ItemDetailContainer'
 
 
@@ -10,12 +10,12 @@ const Item = ({item,setDetalle,setItems}) => {
 
 
     const mostrarDetalleItem = e =>{
-        e.preventDefault();
+        //e.preventDefault();
 
         setDetalle(true);
         setItems(item);
     }
-
+    
     //<p><Button size="sm" onClick={mostrarDetalleItem} variant="outline-secondary">Ver Detalle</Button></p>
     return (
         <Fragment>
@@ -31,7 +31,11 @@ const Item = ({item,setDetalle,setItems}) => {
                             <Card.Title>{item.title}</Card.Title>
                             <Card.Text>
                                 <p><h4>Precio: ${item.price}</h4></p>
-                                <p><Button size="sm" onClick={mostrarDetalleItem} variant="outline-secondary">Ver Detalle</Button></p>
+                            </Card.Text>
+                            <Card.Text>
+                               
+                            <Link to={'/item/item.id'} onClick={mostrarDetalleItem}>Ver Detalle</Link>
+                               
                                     
                             </Card.Text>
                         </Card.Body>
