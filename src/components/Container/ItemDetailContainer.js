@@ -2,10 +2,10 @@ import React from 'react'
 import ItemDetail from './ItemDetail'
 import { useEffect, useState } from 'react';
 
-const ItemDetailContainer = ({setDetalle,itemsel}) => {
+const ItemDetailContainer = ({itemsel}) => {
     const [localItem,SetLocalItem]=useState([]);
 
-    //console.log(itemsel.title);
+    
  
 
  useEffect(() => {
@@ -32,7 +32,6 @@ const ItemDetailContainer = ({setDetalle,itemsel}) => {
         <div>
             <ItemDetail 
                 itemd={localItem}
-                setDetalle={setDetalle}
             />
         </div>
     )

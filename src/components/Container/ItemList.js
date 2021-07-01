@@ -2,7 +2,7 @@ import React from 'react'
 import Item from './Item'
 import {Row, Col} from 'react-bootstrap'
 
-const ItemList = ({items,setDetalle,setItems}) => {
+const ItemList = ({items,setItems}) => {
     
     return (
       
@@ -12,11 +12,10 @@ const ItemList = ({items,setDetalle,setItems}) => {
         
             {items.map(it=> (
                  
-            <Col>    
+            <Col key={it.id}>    
               <Item 
-                    key={it.id}
-                    item={it} 
-                    setDetalle={setDetalle}
+                    
+                    item={it}                     
                     setItems={setItems}
               />
             </Col>

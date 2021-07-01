@@ -4,19 +4,16 @@ import {Link} from 'react-router-dom'
 //import ItemDetailContainer from './ItemDetailContainer'
 
 
-const Item = ({item,setDetalle,setItems}) => {
+const Item = ({item,setItems}) => {
     //console.log(item)
     //mostrarDetalle(true)
 
 
     const mostrarDetalleItem = e =>{
         //e.preventDefault();
-
-        setDetalle(true);
         setItems(item);
     }
     
-    //<p><Button size="sm" onClick={mostrarDetalleItem} variant="outline-secondary">Ver Detalle</Button></p>
     return (
         <Fragment>
            <form
@@ -33,8 +30,9 @@ const Item = ({item,setDetalle,setItems}) => {
                                 <p><h4>Precio: ${item.price}</h4></p>
                             </Card.Text>
                             <Card.Text>
-                               
-                            <Link to={'/item/item.id'} onClick={mostrarDetalleItem}>Ver Detalle</Link>
+
+                            <p><Link to={`/item/${item.id}`}><Button size="sm" onClick={mostrarDetalleItem} variant="outline-secondary">Ver Detalle</Button></Link></p>  
+                            
                                
                                     
                             </Card.Text>
