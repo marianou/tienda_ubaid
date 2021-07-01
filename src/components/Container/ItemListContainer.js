@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import ItemList from './ItemList'
 
 
-const ItemListContainer = ({prodnom,setDetalle,setItems}) => {
+const ItemListContainer = ({prodnom,setItems}) => {
     
   const [localItems,SetLocalItems]=useState([])
 
@@ -39,9 +39,7 @@ const ItemListContainer = ({prodnom,setDetalle,setItems}) => {
             <h3 align="center">{prodnom}</h3>        
             <br/>
             <ItemList
-              items={localItems}
-              
-              setDetalle={setDetalle}
+              items={localItems}              
               setItems={setItems}
             />            
         </div>           

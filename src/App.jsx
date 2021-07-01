@@ -7,13 +7,9 @@ import {BrowserRouter, Switch, Route } from 'react-router-dom'
 function App() {
 
 
-  const [detalle, setDetalle] = useState(false);
-  const [items, setItems]=useState([]);
-  //if(detalle){
-  //  mostrarDetalle(false);
-  //  return;
-  //}
   
+  const [items, setItems]=useState([]);
+    
   return (
     
     <div className="container">
@@ -21,26 +17,20 @@ function App() {
             <NavBar />
                 <br/>
               <Switch>
-                { 
-                  detalle ? 
                   
                   <Route path="/item/:id">
-                    <ItemDetailContainer
-                        setDetalle={setDetalle}
+                    <ItemDetailContainer                        
                         itemsel={items}
-                      /> 
+                    /> 
                   </Route>  
-                    :
-                    
-                  <Route exact path="/">
-                    
+                                        
+                  <Route exact path="/">                    
                     <ItemListContainer 
-                      prodnom="Lista de productos"
-                      setDetalle={setDetalle}
+                      prodnom="Lista de productos"                      
                       setItems={setItems}
                     />
                   </Route>  
-                }
+                
               </Switch> 
     </BrowserRouter>    
     </div>

@@ -3,13 +3,12 @@ import {Card,Button} from 'react-bootstrap'
 import ItemCount from '../ItemCount/ItemCount'
 import {Link} from 'react-router-dom'
 
-const ItemDetail = ({itemd,setDetalle}) => {
+const ItemDetail = ({itemd}) => {
 
 
     const[isClicker, setIsClicker]=useState(false);  
 
     const volver = e =>{
-        setDetalle(false);
         setIsClicker(false);
     }
 
