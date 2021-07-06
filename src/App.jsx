@@ -3,6 +3,7 @@ import ItemListContainer from "./components/Container/ItemListContainer";
 import NavBar from "./components/NavBar/NavBar";
 import ItemDetailContainer from "./components/Container/ItemDetailContainer";
 import {BrowserRouter, Switch, Route } from 'react-router-dom'
+import { CartProvider } from "./components/Context/CarContext.js";
 
 function App() {
 
@@ -12,8 +13,9 @@ function App() {
     
   return (
     
-    <div className="container">
-      <BrowserRouter>
+  <div className="container">
+    <CartProvider>
+        <BrowserRouter>
             <NavBar />
                 <br/>
               <Switch>
@@ -29,11 +31,21 @@ function App() {
                       prodnom="Lista de productos"                      
                       setItems={setItems}
                     />
+                  </Route>
+
+                  <Route exact path='/category/:category_id'>
+                    <ItemListContainer 
+                      prodnom="Lista de productos"                      
+                      setItems={setItems}
+                    />
                   </Route>  
+                    
                 
               </Switch> 
-    </BrowserRouter>    
-    </div>
+        </BrowserRouter>    
+    </CartProvider>
+  </div>
+   
     
   );
 }
