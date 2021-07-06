@@ -20,7 +20,7 @@ const ItemCount = ({stock, inicial,onAdd,item}) => {
 
     const terminar = () =>{
         onAdd(true);
-        addToCart({id:'item.id',title:'item.title',quantity:cantidad,price:'item.price'});
+        addToCart({id:item.id,title:item.title,quantity:cantidad,price:item.price});
         console.log(item.title);
     }
 
