@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom'
 
 const ItemDetail = ({itemd}) => {
 
-
+    
     const[isClicker, setIsClicker]=useState(false);  
     
 

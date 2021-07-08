@@ -1,10 +1,13 @@
 import React from 'react'
 import ItemDetail from './ItemDetail'
 import { useEffect, useState } from 'react';
+import {useParams} from 'react-router-dom'
 
 const ItemDetailContainer = ({itemsel}) => {
     const [localItem,SetLocalItem]=useState([]);
-
+    
+    const { itemid } = useParams();
+    
     
  
 
@@ -25,7 +28,6 @@ const ItemDetailContainer = ({itemsel}) => {
 
  }, )      
      
-    
 
     return (
         
