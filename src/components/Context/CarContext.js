@@ -6,6 +6,7 @@ export const useCartContext = () => useContext(CartContext);
 
 export const CartProvider = function({children}){
 	const [items, setItems] = useState([]);
+    const [total, setTotal] = useState(0);
 
     function addToCart(obj){
         console.log(obj);
@@ -14,10 +15,10 @@ export const CartProvider = function({children}){
             return;
           }
         setItems([...items, obj]);
+        setTotal(total+obj.price*obj.quantity);
         console.log('Elemento agregado!');
 	}
 
-    
     function isInCart({ id }) {
         return id === undefined ? undefined : getFromCart(id) !== undefined;
     }
@@ -35,7 +36,7 @@ export const CartProvider = function({children}){
 		}
 	}
 
-return <CartContext.Provider value={{items, setItems, addToCart, removeItem}}>
+return <CartContext.Provider value={{items, total, setItems, addToCart, removeItem}}>
 {children}
 </CartContext.Provider>
 }

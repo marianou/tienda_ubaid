@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { CartContext} from '../Context/CarContext';
 import {Table, Button} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
@@ -6,55 +6,14 @@ import {Link} from 'react-router-dom';
 
 const Cart = () => {
     
-    const[total, setTotal]=(0);
     const { items } = useContext(CartContext);
     const { removeItem } = useContext(CartContext);
+    const { total } = useContext(CartContext);
 
-    const terminar = (it) =>{
+    const eliminarItem = (it) =>{
         console.log(it.id);
         removeItem(it.id);
-        return(
-            <div>
-            <h3 align="center">Resumen del Carrito</h3>
-            <br/>
-            <Table striped bordered hover size="sm">
-                    <thead>
-                        <tr>
-                        <th>Id</th>
-                        <th>Producto</th>
-                        <th>Cantidad</th>
-                        <th>Precio</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        {items.map(it=> (
-                            <tr key={it.id}>
-                                <th>    
-                                    {it.id}
-                                </th>
-                                <th>
-                                    {it.title}
-                                </th>
-                                <th>
-                                    {it.quantity}
-                                </th>
-                                <th>
-                                    {it.price}
-                                </th>
-                                <th>
-                                    <Button variant="outline-secondary" className="mx-auto" size="sm" 
-                                    onClick={()=>terminar(it.id)}>Eliminar</Button>
-                                </th>
-                            </tr>
-                                )
-                    )
-                        
-                    }
-                </tbody>
-            </Table>
-            </div>
-        );
+       
     }
 
     
@@ -78,8 +37,7 @@ const Cart = () => {
                     </thead>
                     <tbody>
 
-                        {items.map(it=> (
-                            
+                        {items.map(it=>(                                                  
                             <tr>
                                 <th key={it.id}>    
                                     {it.id}
@@ -98,13 +56,16 @@ const Cart = () => {
                                 </th>
                                 <th>
                                     <Button variant="outline-secondary" className="mx-auto" size="sm" 
-                                    onClick={ () => terminar(it.id)}>Eliminar</Button>
-                                </th>
-                            </tr>
-                                )
-                    )}
+                                    onClick={ () => eliminarItem(it.id)}>Eliminar</Button>
+                                </th>                                
+                            </tr>  
+                        )    
+                        
+                    )
+                    }
                 </tbody>
             </Table>
+                <h3 align="right">Total: {total} </h3>
             </>
         ):
 
