@@ -22,7 +22,7 @@ const ItemDetail = ({localItem}) => {
                 <Card.Header><h4>{localItem.title}</h4></Card.Header>
                 <Card.Body>
                     
-                    <Card.Img variant="top" src={localItem.pictureUrl} height="150px" width="40px" />
+                    <Card.Img variant="top" src={localItem.imageId} height="150px" width="40px" />
                     <Card.Text>
                     <p>{localItem.description}</p>
                     <p>Precio:$ {localItem.price}</p>            

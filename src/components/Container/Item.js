@@ -14,6 +14,7 @@ const Item = ({item,setItems}) => {
         setItems(item);
     }
     
+    console.log("Item id: ",item.id);
     return (
         <Fragment>
            <form
@@ -22,7 +23,7 @@ const Item = ({item,setItems}) => {
             <div className="text-center">
                 <Card style={{ width: '16rem'}}>
                 
-                    <Card.Img variant="top" src={item.pictureUrl} height="150px" width="100px" />
+                    <Card.Img variant="top" src={item.imageId} height="150px" width="100px" />
                
                         <Card.Body>
                             <Card.Title>{item.title}</Card.Title>
