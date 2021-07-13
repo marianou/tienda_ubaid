@@ -17,7 +17,7 @@ const ItemListContainer = ({prodnom,setItems}) => {
     const db = getFirestore();
 
 		const itemCollection = db.collection('items');
-
+    
     /*const getItems =(prod)=>{
         return new Promise((resolve,reject)=>{
           setTimeout(()=>{
@@ -32,20 +32,34 @@ const ItemListContainer = ({prodnom,setItems}) => {
     
     */
 
-    let validItems = itemCollection.where('price', '>', 0);
+    /*let validItems = itemCollection.where('price', '>', 0);
 
-		if(category_id){
+		if(categoryId){
 			validItems = validItems.where('categoryId', '==', "10");
 			console.log(validItems);
-		}
+		}*/
 
-		validItems.get().then((data)=>{
+    itemCollection.get().then((querySnapshot)=>{
+        if(querySnapshot.size===0){
+          console.log("No hay resultados");
+          return;
+        }
+
+        console.log("Items encontrados");
+        SetLocalItems(querySnapshot.docs.map(doc=> ({...doc.data(), id: doc.id})));
+
+
+
+
+    })
+
+		/*validItems.get().then((data)=>{
 			if(!data.length === 0){
 				console.log('No se encontraron productos');
 			}
 			
 			SetLocalItems(data.docs.map(doc => ({...doc.data(), id: doc.id})));
-		});
+		});*/
 
       
   }, [])
