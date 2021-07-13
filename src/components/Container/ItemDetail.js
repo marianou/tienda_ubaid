@@ -4,7 +4,7 @@ import ItemCount from '../ItemCount/ItemCount'
 import {Link} from 'react-router-dom'
 
 
-const ItemDetail = ({itemd}) => {
+const ItemDetail = ({localItem}) => {
 
     
     const[isClicker, setIsClicker]=useState(false);  
@@ -19,13 +19,13 @@ const ItemDetail = ({itemd}) => {
         <div className="text-center">
                 
             <Card style={{ width: '25rem'}}>
-                <Card.Header><h4>{itemd.title}</h4></Card.Header>
+                <Card.Header><h4>{localItem.title}</h4></Card.Header>
                 <Card.Body>
                     
-                    <Card.Img variant="top" src={itemd.pictureUrl} height="150px" width="40px" />
+                    <Card.Img variant="top" src={localItem.pictureUrl} height="150px" width="40px" />
                     <Card.Text>
-                    <p>{itemd.description}</p>
-                    <p>Precio:$ {itemd.price}</p>            
+                    <p>{localItem.description}</p>
+                    <p>Precio:$ {localItem.price}</p>            
 
                     {isClicker===true ? (  
                         
@@ -41,7 +41,7 @@ const ItemDetail = ({itemd}) => {
                                 stock={5}
                                 inicial={1}
                                 onAdd={setIsClicker}
-                                item={itemd}
+                                item={localItem}
                             />
                             </p>
                         )

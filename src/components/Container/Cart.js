@@ -10,10 +10,10 @@ const Cart = () => {
     const { removeItem } = useContext(CartContext);
     const { total } = useContext(CartContext);
 
-    const eliminarItem = (it) =>{
-        console.log(it.id);
-        removeItem(it.id);
-       
+    
+    const eliminarItem = (id) =>{
+        console.log(id);
+        removeItem(id);       
     }
 
     
@@ -37,7 +37,7 @@ const Cart = () => {
                     </thead>
                     <tbody>
 
-                        {items.map(it=>(                                                  
+                        {items.map(it=>(                                                                                                                                                 
                             <tr>
                                 <th key={it.id}>    
                                     {it.id}
@@ -56,7 +56,7 @@ const Cart = () => {
                                 </th>
                                 <th>
                                     <Button variant="outline-secondary" className="mx-auto" size="sm" 
-                                    onClick={ () => eliminarItem(it.id)}>Eliminar</Button>
+                                     value={it.id} onClick={ () => eliminarItem(Button.value)}>Eliminar</Button>
                                 </th>                                
                             </tr>  
                         )    
