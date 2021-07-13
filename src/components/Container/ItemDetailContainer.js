@@ -27,7 +27,7 @@ const ItemDetailContainer = ({itemsel}) => {
           return;
         }
         console.log('Item encontrado: ',doc.data());
-        SetLocalItem([{ id: doc.id, ...doc.data() }]);
+        SetLocalItem({ id: doc.id, ...doc.data() });
       })
     
     /*const items=[
