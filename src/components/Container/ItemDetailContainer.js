@@ -10,16 +10,16 @@ const ItemDetailContainer = ({itemsel}) => {
     
     const { itemid } = useParams();
     
-    console.log(itemid)
+    console.log("Item con UseParams: ",itemid)
     
 
  useEffect(() => {
 
     const db = getFirestore();
-    const id= itemsel.id
-	const itemCollection = db.collection('items');
+    //const id= itemsel.id
+	  const itemCollection = db.collection('items');
 
-    const product = itemCollection.doc(id);
+    const product = itemCollection.doc(itemid);
 
     product.get().then((doc)=>{
         if (!doc.exists) {
@@ -54,10 +54,7 @@ const ItemDetailContainer = ({itemsel}) => {
     
     */
 
-
-    console.log("LocalItem",localItem);
-
- },[] )      
+ },[itemid] )      
      
     //console.log("Itemid:",itemid);
 

@@ -7,6 +7,7 @@ export const useCartContext = () => useContext(CartContext);
 export const CartProvider = function({children}){
 	const [items, setItems] = useState([]);
     const [total, setTotal] = useState(0);
+    const [cantItems, setcantItems] = useState(0);
 
     function addToCart(obj){
         console.log(obj);
@@ -16,6 +17,7 @@ export const CartProvider = function({children}){
           }
         setItems([...items, obj]);
         setTotal(total+obj.price*obj.quantity);
+        setcantItems(cantItems+1);
         console.log('Elemento agregado!');
 	}
 
@@ -27,16 +29,20 @@ export const CartProvider = function({children}){
         return items.find(x => x.id === id);
       }
 
-	function removeItem (id){
+	function removeItem (id,precio){
 		if (items.length > 0) {
 			const updateItems = items.filter(function (item){
 				return item.id !== id;
 			});
-			setItems(updateItems);
+			setTotal(total-precio);
+            setcantItems(cantItems-1);
+            setItems(updateItems);
+            
+
 		}
 	}
 
-return <CartContext.Provider value={{items, total, setItems, addToCart, removeItem}}>
+return <CartContext.Provider value={{items, total,cantItems, setItems, addToCart, removeItem}}>
 {children}
 </CartContext.Provider>
 }

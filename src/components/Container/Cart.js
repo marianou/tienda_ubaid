@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { CartContext} from '../Context/CarContext';
 import {Table, Button} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
@@ -9,12 +9,6 @@ const Cart = () => {
     const { items } = useContext(CartContext);
     const { removeItem } = useContext(CartContext);
     const { total } = useContext(CartContext);
-
-    
-    const eliminarItem = (id) =>{
-        console.log(id);
-        removeItem(id);       
-    }
 
     
     return (
@@ -56,7 +50,7 @@ const Cart = () => {
                                 </th>
                                 <th>
                                     <Button variant="outline-secondary" className="mx-auto" size="sm" 
-                                     value={it.id} onClick={ () => eliminarItem(Button.value)}>Eliminar</Button>
+                                     onClick={ () => removeItem(it.id,it.price*it.quantity)}>Eliminar</Button>
                                 </th>                                
                             </tr>  
                         )    
@@ -72,7 +66,7 @@ const Cart = () => {
         (
             <>
                 <br/>
-                <h3 align="center">No hay porductos en el Carrito...</h3>
+                <h3 align="center">No hay productos en el Carrito...</h3>
                 <br/>
                 <div className="text-center">
                     <Link to={'/'}><Button variant="primary">Ir a Comprar</Button></Link>
