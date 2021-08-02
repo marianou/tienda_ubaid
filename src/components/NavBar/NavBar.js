@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { CartContext} from '../Context/CarContext';
-import { Nav, Navbar,Form, FormControl, Button } from 'react-bootstrap'
+import { Nav, Navbar, Button } from 'react-bootstrap'
 import CardWidget from '../CardWidget/CardWidget'
 import {Link} from 'react-router-dom'
 
@@ -27,10 +27,6 @@ const NavBar = () => {
                     (<Nav.Link><Link to={'/cart'}><CardWidget /></Link></Nav.Link>)
                     }                
             </Nav>
-            <Form inline>
-                <FormControl type="text" placeholder="Buscar producto" className="mr-sm-2" />
-                <Button variant="outline-info">Buscar</Button>
-            </Form>
         </Navbar>    
     )
 }
