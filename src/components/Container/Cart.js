@@ -2,10 +2,45 @@ import React, { useContext } from 'react';
 import { CartContext} from '../Context/CarContext';
 import {Table, Button} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
+import { getFirestore } from '../../firebase';
+import firebase from 'firebase/app';
+import '@firebase/firestore';
 
 
 const Cart = () => {
     
+    const saveOrder = () => {
+        const db = getFirestore();
+        const order = db.collection('orders');
+        const newOrder = {
+        buyer: {
+            email: 'pperez@gmail.com',
+            name: 'Pedro Perez',
+            phone: '+5491135678912'
+        },
+        date: firebase.firestore.Timestamp.fromDate(new Date()),
+        total: total,
+        items: [
+            items.map(it=>(                                                                                                                                                 
+                key=it.id
+                id: it.id,
+                title: it.title,
+                price: it.price    
+                )
+            )
+        ]
+        };
+
+        order
+        .add(newOrder)
+        .then(({ id }) => {
+            console.log(`Orden creada. Id: ${id}`);
+        })
+        .catch(error => {
+            console.log(error);
+        });
+  };
+
     const { items } = useContext(CartContext);
     const { removeItem } = useContext(CartContext);
     const { total } = useContext(CartContext);
@@ -60,6 +95,9 @@ const Cart = () => {
                 </tbody>
             </Table>
                 <h3 align="right">Total: {total} </h3>
+                <Button variant="outline-secondary" className="mx-auto" size="sm" 
+                onClick={ () => saveOrder()}>Confirmar Compra</Button>
+
             </>
         ):
 

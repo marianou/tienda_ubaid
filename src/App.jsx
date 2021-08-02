@@ -11,7 +11,8 @@ function App() {
 
   
   const [items, setItems]=useState([]);
-    
+  const titulo="Bienvenidos";
+
   return (
     
   <div className="container">
@@ -20,7 +21,6 @@ function App() {
             <NavBar />
                 <br/>
               <Switch>
-                  
                   <Route exact path="/item/:itemid">
                     <ItemDetailContainer                        
                         itemsel={items}
@@ -29,14 +29,14 @@ function App() {
                                         
                   <Route exact path="/">                    
                     <ItemListContainer 
-                      prodnom="Lista de productos"                      
+                      prodnom={titulo}                      
                       setItems={setItems}
                     />
                   </Route>
 
                   <Route exact path='/category/:category_id'>
                     <ItemListContainer 
-                      prodnom="Lista de productos"                      
+                      prodnom={titulo}
                       setItems={setItems}
                     />
                   </Route>  
