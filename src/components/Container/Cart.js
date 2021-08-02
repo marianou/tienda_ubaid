@@ -9,9 +9,14 @@ import '@firebase/firestore';
 
 const Cart = () => {
     
+    const { items } = useContext(CartContext);
+    const { removeItem } = useContext(CartContext);
+    const { total } = useContext(CartContext);
+
     const saveOrder = () => {
         const db = getFirestore();
         const order = db.collection('orders');
+
         const newOrder = {
         buyer: {
             email: 'pperez@gmail.com',
@@ -20,15 +25,7 @@ const Cart = () => {
         },
         date: firebase.firestore.Timestamp.fromDate(new Date()),
         total: total,
-        items: [
-            items.map(it=>(                                                                                                                                                 
-                key=it.id
-                id: it.id,
-                title: it.title,
-                price: it.price    
-                )
-            )
-        ]
+        items: items
         };
 
         order
@@ -41,10 +38,7 @@ const Cart = () => {
         });
   };
 
-    const { items } = useContext(CartContext);
-    const { removeItem } = useContext(CartContext);
-    const { total } = useContext(CartContext);
-
+    
     
     return (
         <div>
@@ -96,7 +90,7 @@ const Cart = () => {
             </Table>
                 <h3 align="right">Total: {total} </h3>
                 <Button variant="outline-secondary" className="mx-auto" size="sm" 
-                onClick={ () => saveOrder()}>Confirmar Compra</Button>
+                onClick={()=>saveOrder()}>Confirmar Compra</Button>
 
             </>
         ):
